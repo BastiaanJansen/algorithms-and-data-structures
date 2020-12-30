@@ -2,6 +2,10 @@ package DataStructures.Lists;
 
 import java.util.Collection;
 
+/**
+ * @author Bastiaan Jansen
+ * @param <T>
+ */
 public interface List <T>{
     void add(int index, T element);
     void addAll(Collection<? extends T> elements);

@@ -1,13 +1,20 @@
 package DataStructures.Stacks;
 
-import DataStructures.Lists.SinglyLinkedList;
+import java.util.LinkedList;
 
+/**
+ * Stack implementation using a linked list.
+ *
+ * @author Bastiaan Jansen
+ * @see Stack
+ * @param <T>
+ */
 public class StackLinkedList<T> implements Stack<T> {
 
-    SinglyLinkedList<T> list;
+    LinkedList<T> list;
 
     public StackLinkedList() {
-        this.list = new SinglyLinkedList();
+        this.list = new LinkedList<>();
     }
 
     @Override
@@ -17,7 +24,7 @@ public class StackLinkedList<T> implements Stack<T> {
 
     @Override
     public T pop() {
-        return list.deleteFirst();
+        return list.removeFirst();
     }
 
     @Override

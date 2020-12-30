@@ -2,6 +2,13 @@ package DataStructures.Queues;
 
 import java.util.ArrayList;
 
+/**
+ * Queue implementation using an array list.
+ *
+ * @author Bastiaan Jansen
+ * @see Queue
+ * @param <T>
+ */
 public class QueueArrayList<T> implements Queue<T> {
 
     private ArrayList<T> list;

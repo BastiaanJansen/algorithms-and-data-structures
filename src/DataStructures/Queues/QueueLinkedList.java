@@ -1,13 +1,20 @@
 package DataStructures.Queues;
 
-import DataStructures.Lists.SinglyLinkedList;
+import java.util.LinkedList;
 
+/**
+ * Queue implementation using a linked list.
+ *
+ * @author Bastiaan Jansen
+ * @see Queue
+ * @param <T>
+ */
 public class QueueLinkedList<T> implements Queue<T> {
 
-    private SinglyLinkedList<T> list;
+    private LinkedList<T> list;
 
     public QueueLinkedList() {
-        this.list = new SinglyLinkedList<>();
+        this.list = new LinkedList<>();
     }
 
     @Override
@@ -17,7 +24,7 @@ public class QueueLinkedList<T> implements Queue<T> {
 
     @Override
     public T dequeue() {
-        return list.deleteFirst();
+        return list.removeFirst();
     }
 
     @Override

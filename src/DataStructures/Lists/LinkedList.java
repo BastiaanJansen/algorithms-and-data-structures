@@ -1,7 +1,10 @@
 package DataStructures.Lists;
 
-import java.util.Collection;
-
+/**
+ * @author Bastiaan Jansen
+ * @see List
+ * @param <T>
+ */
 public interface LinkedList<T> extends List<T> {
     void addFirst(T element);
     void addLast(T element);
