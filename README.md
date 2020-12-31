@@ -1,4 +1,4 @@
-# Algorithms-And-Data-Structures
+# Algorithms and Data Structures
 
 ![](https://github.com/BastiaanJansen/Algorithms-And-Data-Structures/workflows/Test/badge.svg)
 
