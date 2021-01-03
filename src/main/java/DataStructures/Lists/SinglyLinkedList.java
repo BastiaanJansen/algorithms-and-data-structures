@@ -173,9 +173,8 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
 
     private Node getLastNode() {
         if (node == null)
-            throw new NoSuchElementException();
-        else
-            return node.getLast();
+            return null;
+        return node.getLast();
     }
 
     @Override
