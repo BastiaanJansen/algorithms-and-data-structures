@@ -11,8 +11,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         tree.add(6);
         tree.add(3);
         tree.add(1);
-
-        System.out.println(tree.contains(7));
     }
 
     private Node root;
@@ -49,7 +47,15 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 
     @Override
     public int getDepth() {
-        return 0;
+        return getDepth(root);
+    }
+
+    private int getDepth(Node root) {
+        if (root == null)
+            return -1;
+        int leftDepth = getDepth(root.left);
+        int rightDepth = getDepth(root.right);
+        return Math.max(leftDepth, rightDepth) + 1;
     }
 
     @Override
