@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
  * @param <T>
  */
 public class SinglyLinkedList<T> implements LinkedList<T> {
-    private Node node;
+    private Node head;
 
     public SinglyLinkedList() {}
 
@@ -35,10 +35,10 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     public void addFirst(T value) {
         Node newNode = new Node(value);
 
-        if (this.node != null)
-            newNode.next = this.node;
+        if (this.head != null)
+            newNode.next = this.head;
 
-        this.node = newNode;
+        this.head = newNode;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
             return;
         }
 
-        node = new Node(value, node);
+        head = new Node(value, head);
     }
 
     @Override
@@ -92,10 +92,10 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
             throw new NoSuchElementException();
 
         if (index == 0) {
-            if (this.node.hasNext())
-                this.node = this.node.next;
+            if (this.head.hasNext())
+                this.head = this.head.next;
             else
-                this.node = null;
+                this.head = null;
             return node.value;
         }
 
@@ -115,12 +115,12 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
 
     @Override
     public int find(T value) {
-        if (node == null) throw new NoSuchElementException();
-        return node.find(value);
+        if (head == null) throw new NoSuchElementException();
+        return head.find(value);
     }
 
     private Node getNode(int index) {
-        Node currentNode = node;
+        Node currentNode = head;
 
         if (currentNode == null)
             throw new NoSuchElementException();
@@ -141,25 +141,25 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
 
     @Override
     public void clear() {
-        node = null;
+        head = null;
     }
 
     @Override
     public boolean contains(T element) {
-        return node.contains(element);
+        return head.contains(element);
     }
 
     @Override
     public T getFirst() {
         Node firstNode = getFirstNode();
-        if (node == null)
+        if (head == null)
             throw new NoSuchElementException();
 
         return firstNode.value;
     }
 
     private Node getFirstNode() {
-        return node == null ? null : node;
+        return head == null ? null : head;
     }
 
     public T getLast() {
@@ -172,20 +172,20 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     }
 
     private Node getLastNode() {
-        if (node == null)
+        if (head == null)
             return null;
-        return node.getLast();
+        return head.getLast();
     }
 
     @Override
     public int size() {
-        if (node == null) return 0;
-        return node.size(1);
+        if (head == null) return 0;
+        return head.size(1);
     }
 
     @Override
     public boolean isEmpty() {
-        return node == null;
+        return head == null;
     }
 
     private class Node implements LinkedList.Node<T> {

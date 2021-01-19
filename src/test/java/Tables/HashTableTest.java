@@ -30,8 +30,9 @@ class HashTableTest {
         assertEquals(0, table.size());
         table.put(1, 100);
         assertEquals(1, table.size());
-        table.put(1, 100);
+        table.put(1, 150);
         assertEquals(1, table.size());
+        assertEquals(150, table.get(1));
         table.put(2, 200);
         assertEquals(2, table.size());
         table.put(3, 300);
@@ -39,7 +40,6 @@ class HashTableTest {
         table.put(5, 500);
         table.put(6, 600);
         assertEquals(6, table.size());
-
     }
 
     @Test
