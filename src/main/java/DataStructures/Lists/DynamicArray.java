@@ -1,6 +1,7 @@
 package DataStructures.Lists;
 
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
 /**
  * In computer science, a dynamic array, growable array, resizable array, dynamic table, mutable array,
@@ -63,7 +64,7 @@ public class DynamicArray<T> implements List<T> {
     }
 
     public void add(T element) {
-        if (length + 1 >= capacity)
+        if (length + 1 > capacity)
             resize();
 
         array[length++] = element;
@@ -91,7 +92,17 @@ public class DynamicArray<T> implements List<T> {
 
     @Override
     public void add(int index, T element) {
+        if (index < 0 || index > length)
+            throw new IllegalArgumentException();
 
+        if (length + 1 > capacity)
+            resize();
+
+        for (int i = index; i < length; i++)
+            array[i + 1] = array[i];
+
+        array[index] = element;
+        length++;
     }
 
     @Override
@@ -102,6 +113,9 @@ public class DynamicArray<T> implements List<T> {
 
     @Override
     public T remove(int index) {
+        if (index < 0 || index > length)
+            throw new NoSuchElementException();
+
         T element = array[index];
         if (length - (index + 1) >= 0) System.arraycopy(array, index + 1, array, index + 1 - 1, length - (index + 1));
         array[length--] = null;

@@ -55,7 +55,14 @@ class DynamicArrayTest {
     void add() {
         assertEquals(0, list.size());
         list.add(1);
-        assertEquals(1, list.size());
+        list.add(2);
+        assertEquals(2, list.size());
+        list.add(0, 3);
+        assertEquals(3, list.size());
+        assertEquals(3, list.get(0));
+        list.add(2, 4);
+        assertEquals(4, list.size());
+        assertEquals(4, list.get(2));
     }
 
     @Test
