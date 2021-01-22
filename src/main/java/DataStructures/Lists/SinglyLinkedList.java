@@ -114,7 +114,7 @@ public class SinglyLinkedList<T> implements LinkedList<T> {
     }
 
     @Override
-    public int find(T value) {
+    public int indexOf(T value) {
         if (head == null) throw new NoSuchElementException();
         return head.find(value);
     }

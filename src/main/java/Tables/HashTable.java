@@ -165,12 +165,12 @@ public class HashTable<K, V> implements Table<K, V> {
         return hash % size;
     }
 
-    private class HashEntry<Key, Value> {
-        Key key;
-        Value value;
-        HashEntry<Key, Value> next;
+    private static class HashEntry<K, V> {
+        K key;
+        V value;
+        HashEntry<K, V> next;
 
-        public HashEntry(Key key, Value value) {
+        public HashEntry(K key, V value) {
             this.key = key;
             this.value = value;
             this.next = null;
