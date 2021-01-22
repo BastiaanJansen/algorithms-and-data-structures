@@ -74,6 +74,7 @@ public class DynamicArray<T> implements List<T> {
         int index = indexOf(element);
         if (length - (index + 1) >= 0) System.arraycopy(array, index + 1, array, index + 1 - 1, length - (index + 1));
         array[length--] = null;
+        resize(capacity - 1);
     }
 
     @Override
@@ -119,6 +120,7 @@ public class DynamicArray<T> implements List<T> {
         T element = array[index];
         if (length - (index + 1) >= 0) System.arraycopy(array, index + 1, array, index + 1 - 1, length - (index + 1));
         array[length--] = null;
+        resize(capacity - 1);
         return element;
     }
 
@@ -130,9 +132,13 @@ public class DynamicArray<T> implements List<T> {
         return -1;
     }
 
-    @SuppressWarnings("unchecked")
     private void resize() {
-        capacity *= 2;
+        resize(capacity * 2);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void resize(int capacity) {
+        this.capacity = capacity;
         T[] newArray = (T[]) new Object[capacity];
         if (length >= 0) System.arraycopy(array, 0, newArray, 0, length);
         array = newArray;
