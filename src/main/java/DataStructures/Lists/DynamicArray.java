@@ -66,8 +66,7 @@ public class DynamicArray<T> implements List<T> {
         if (length + 1 >= capacity)
             resize();
 
-        array[length] = element;
-        length++;
+        array[length++] = element;
     }
 
     public void remove(Object element) {
