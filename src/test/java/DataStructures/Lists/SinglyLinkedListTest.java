@@ -108,12 +108,12 @@ class SinglyLinkedListTest {
     @Test
     void find() {
         assertThrows(NoSuchElementException.class, () -> {
-            list.find(2);
+            list.indexOf(2);
         });
         list.addFirst(1);
         list.addFirst(2);
-        assertEquals(0, list.find(2));
-        assertEquals(1, list.find(1));
+        assertEquals(0, list.indexOf(2));
+        assertEquals(1, list.indexOf(1));
     }
 
     @Test

@@ -12,10 +12,9 @@ public interface LinkedList<T> extends List<T> {
     T getLast();
     T removeFirst();
     T removeLast();
-    T remove(int index);
 
     interface Node<T> {
-        Node getLast();
+        Node<T> getLast();
         boolean contains(T element);
         int size(int n);
         int find(T element);

@@ -149,7 +149,7 @@ public class DoublyLinkedList<T> implements LinkedList<T> {
     }
 
     @Override
-    public int find(T element) {
+    public int indexOf(T element) {
         if (node == null)
             throw new NoSuchElementException();
 

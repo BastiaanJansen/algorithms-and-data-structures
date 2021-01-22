@@ -6,6 +6,7 @@ package Strings;
  * @author Bastiaan Jansen
  */
 public class Reverse {
+
     public static String reverse(String value) {
         StringBuilder reversedString = new StringBuilder();
 
