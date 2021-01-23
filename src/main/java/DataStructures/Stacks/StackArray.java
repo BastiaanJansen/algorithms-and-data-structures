@@ -1,5 +1,8 @@
 package DataStructures.Stacks;
 
+import java.util.Arrays;
+import java.util.Iterator;
+
 /**
  * Stack implementation using an array.
  *
@@ -19,8 +22,7 @@ public class StackArray<T> implements Stack<T> {
 
     @Override
     public void push(T value) {
-        list[index] = value;
-        index++;
+        list[index++] = value;
     }
 
     @SuppressWarnings("unchecked")

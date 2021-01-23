@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -115,5 +116,15 @@ class DynamicArrayTest {
         list.add(2);
         assertEquals(0, list.indexOf(1));
         assertEquals(1, list.indexOf(2));
+    }
+
+    @Test
+    void iterator() {
+        Iterator<Integer> iterator = list.iterator();
+        assertFalse(iterator.hasNext());
+        list.add(1);
+        assertTrue(iterator.hasNext());
+        iterator.remove();
+        assertFalse(iterator.hasNext());
     }
 }
