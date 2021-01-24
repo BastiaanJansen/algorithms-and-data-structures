@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BubbleSortTest {
 
-    BubbleSort algorithm;
+    SortAlgorithm algorithm;
     Integer[] array;
     Integer[] sorted;
 
@@ -29,5 +29,15 @@ class BubbleSortTest {
     @Test
     void sort() {
         assertArrayEquals(sorted, algorithm.sort(array));
+    }
+
+    @Test
+    void sortEmptyArray() {
+        assertArrayEquals(new Integer[] {}, algorithm.sort(new Integer[] {}));
+    }
+
+    @Test
+    void sortOneElement() {
+        assertArrayEquals(new Integer[] { 2 }, algorithm.sort(new Integer[] { 2 }));
     }
 }

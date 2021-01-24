@@ -7,7 +7,7 @@ public class MergeSort implements SortAlgorithm {
 
     @Override
     public <T extends Comparable<T>> T[] sort(T[] array) {
-        if (array.length == 1)
+        if (array.length == 0 || array.length == 1)
             return array;
 
         int start = 0;
