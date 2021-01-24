@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MergeSortTest {
+class QuickSortTest {
 
     SortAlgorithm algorithm;
     Integer[] array;
@@ -14,7 +14,7 @@ class MergeSortTest {
 
     @BeforeEach
     void setUp() {
-        this.algorithm = new MergeSort();
+        this.algorithm = new QuickSort();
         this.array = new Integer[]{ 1, 5, 4, 6, 6, 8, 4, 3, 1 };
         this.sorted = new Integer[]{ 1, 1, 3, 4, 4, 5, 6, 6, 8 };
     }
