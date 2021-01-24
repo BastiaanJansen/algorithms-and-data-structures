@@ -1,6 +1,7 @@
 package DataStructures.Stacks;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Stack implementation using an array list.
