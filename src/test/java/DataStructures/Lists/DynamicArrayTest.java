@@ -117,14 +117,4 @@ class DynamicArrayTest {
         assertEquals(0, list.indexOf(1));
         assertEquals(1, list.indexOf(2));
     }
-
-    @Test
-    void iterator() {
-        Iterator<Integer> iterator = list.iterator();
-        assertFalse(iterator.hasNext());
-        list.add(1);
-        assertTrue(iterator.hasNext());
-        iterator.remove();
-        assertFalse(iterator.hasNext());
-    }
 }
