@@ -30,4 +30,19 @@ public interface SortAlgorithm {
         T[] array = (T[]) list.toArray();
         return Arrays.asList(sort(array));
     }
+
+    /**
+     * Swap two elements in an array
+     *
+     * @param array with items
+     * @param index1 index of swap item 1
+     * @param index2 index of swap item 2
+     * @param <T> type of elements of array
+     */
+    default <T extends Comparable<T>> void swap(T[] array, int index1, int index2) {
+        T item1 = array[index1];
+        T item2 = array[index2];
+        array[index1] = item2;
+        array[index2] = item1;
+    }
 }

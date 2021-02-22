@@ -13,13 +13,6 @@ package Sorts;
  */
 public class QuickSort implements SortAlgorithm {
 
-    public static void main(String[] args) {
-        SortAlgorithm sorter = new QuickSort();
-        Integer[] array = { 4, 2, 3, 6, 2, 1 };
-        Integer[] sorted = sorter.sort(array);
-        System.out.println(sorted[0]);
-    }
-
     @Override
     public <T extends Comparable<T>> T[] sort(T[] array) {
         return sort(array, 0, array.length - 1);
@@ -48,12 +41,5 @@ public class QuickSort implements SortAlgorithm {
         }
         swap(array, i, high);
         return i;
-    }
-
-    private <T extends Comparable<T>> void swap(T[] array, int index1, int index2) {
-        T item1 = array[index1];
-        T item2 = array[index2];
-        array[index1] = item2;
-        array[index2] = item1;
     }
 }
