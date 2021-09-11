@@ -1,8 +1,5 @@
 package Sorts;
 
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * Generic interface for sort algorithms
  *
@@ -14,22 +11,8 @@ public interface SortAlgorithm {
      *
      * @param array to be sorted
      * @param <T> type of elements in array
-     * @return sorted array
      */
-    <T extends Comparable<T>> T[] sort(T[] array);
-
-    /**
-     * Sort a list
-     *
-     * @param list to be sorted
-     * @param <T> type of elements in list
-     * @return sorted list
-     */
-    @SuppressWarnings("unchecked")
-    default <T extends Comparable<T>> List<T> sort(List<T> list) {
-        T[] array = (T[]) list.toArray();
-        return Arrays.asList(sort(array));
-    }
+    <T extends Comparable<T>> void sort(T[] array);
 
     /**
      * Swap two elements in an array
@@ -40,9 +23,8 @@ public interface SortAlgorithm {
      * @param <T> type of elements of array
      */
     default <T extends Comparable<T>> void swap(T[] array, int index1, int index2) {
-        T item1 = array[index1];
-        T item2 = array[index2];
-        array[index1] = item2;
-        array[index2] = item1;
+        T temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 }

@@ -28,16 +28,21 @@ class BubbleSortTest {
 
     @Test
     void sort() {
-        assertArrayEquals(sorted, algorithm.sort(array));
+        algorithm.sort(array);
+        assertArrayEquals(sorted, array);
     }
 
     @Test
     void sortEmptyArray() {
-        assertArrayEquals(new Integer[] {}, algorithm.sort(new Integer[] {}));
+        Integer[] array = new Integer[] {};
+        algorithm.sort(array);
+        assertArrayEquals(new Integer[] {}, array);
     }
 
     @Test
     void sortOneElement() {
-        assertArrayEquals(new Integer[] { 2 }, algorithm.sort(new Integer[] { 2 }));
+        Integer[] array = new Integer[] { 2 };
+        algorithm.sort(array);
+        assertArrayEquals(new Integer[] { 2 }, array);
     }
 }

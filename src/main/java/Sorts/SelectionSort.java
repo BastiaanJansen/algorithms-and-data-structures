@@ -16,7 +16,7 @@ package Sorts;
 public class SelectionSort implements SortAlgorithm {
 
     @Override
-    public <T extends Comparable<T>> T[] sort(T[] array) {
+    public <T extends Comparable<T>> void sort(T[] array) {
         for (int i = 0; i < array.length; i++) {
             int minIndex = i;
 
@@ -26,7 +26,5 @@ public class SelectionSort implements SortAlgorithm {
 
             swap(array, minIndex, i);
         }
-
-        return array;
     }
 }
