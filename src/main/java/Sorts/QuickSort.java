@@ -14,31 +14,29 @@ package Sorts;
 public class QuickSort implements SortAlgorithm {
 
     @Override
-    public <T extends Comparable<T>> T[] sort(T[] array) {
-        return sort(array, 0, array.length - 1);
+    public <T extends Comparable<T>> void sort(T[] array) {
+         sort(array, 0, array.length - 1);
     }
 
-    private <T extends Comparable<T>> T[] sort(T[] array, int low, int high) {
-        if (low >= high)
-            return array;
+    private <T extends Comparable<T>> void sort(T[] array, int low, int high) {
+        if (low >= high) return;
 
-        int p = partition(array, low, high);
+        int partitionIndex = partition(array, low, high);
 
-        sort(array, low, p - 1);
-        sort(array, p + 1, array.length - 1);
-
-        return array;
+        sort(array, low, partitionIndex - 1);
+        sort(array, partitionIndex + 1, array.length - 1);
     }
 
     private <T extends Comparable<T>> int partition(T[] array, int low, int high) {
         T pivot = array[high];
+
         int i = low;
+
         for (int j = low; j <= high; j++) {
-            if (array[j].compareTo(pivot) < 0) {
-                swap(array, i, j);
-                i++;
-            }
+            if (array[j].compareTo(pivot) < 0)
+                swap(array, i++, j);
         }
+
         swap(array, i, high);
         return i;
     }

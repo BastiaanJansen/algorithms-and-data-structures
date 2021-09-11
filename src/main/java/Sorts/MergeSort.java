@@ -1,59 +1,49 @@
 package Sorts;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MergeSort implements SortAlgorithm {
 
     @Override
-    public <T extends Comparable<T>> T[] sort(T[] array) {
+    public <T extends Comparable<T>> void sort(T[] array) {
         if (array.length == 0 || array.length == 1)
-            return array;
+            return;
 
-        int start = 0;
-        int end = array.length - 1;
+        sort(array, 0, array.length - 1);
+    }
+
+    private <T extends Comparable<T>> void sort(T[] array, int start, int end) {
+        if (start >= end) return;
+
         int mid = (int) Math.floor((start + end) >>> 1);
 
+        sort(array, start, mid);
+        sort(array, mid + 1, end);
+
+        merge(array, start, mid, end);
+    }
+
+    private <T extends Comparable<T>> void merge(T[] array, int start, int mid, int end) {
         T[] left = Arrays.copyOfRange(array, start, mid + 1);
         T[] right = Arrays.copyOfRange(array, mid + 1, end + 1);
 
-        T[] leftSideSorted = sort(left);
-        T[] rightSideSorted = sort(right);
+        int index = start, leftIndex = 0, rightIndex = 0;
 
-        return merge(leftSideSorted, rightSideSorted);
-    }
+        while (leftIndex < left.length && rightIndex < right.length) {
+            int result = left[leftIndex].compareTo(right[rightIndex]);
 
-    @SuppressWarnings("unchecked")
-    private <T extends Comparable<T>> T[] merge(T[] array1, T[] array2) {
-        int array1Length = array1.length;
-        int array2Length = array2.length;
-
-        int array1Index = 0, array2Index = 0, index = 0;
-
-        T[] newArray = (T[]) Array.newInstance(array1.getClass().getComponentType(), array1Length + array2Length);
-
-        while (array1Length > 0 && array2Length > 0) {
-            int result = array1[array1Index].compareTo(array2[array2Index]);
-
-            if (result > 0) {
-                newArray[index++] = array2[array2Index++];
-                array2Length--;
-            } else {
-                newArray[index++] = array1[array1Index++];
-                array1Length--;
-            }
+            if (result < 0)
+                array[index++] = left[leftIndex++];
+            else
+                array[index++] = right[rightIndex++];
         }
 
-        while (array1Length > 0) {
-            newArray[index++] = array1[array1Index++];
-            array1Length--;
+        while (leftIndex < left.length) {
+            array[index++] = left[leftIndex++];
         }
 
-        while (array2Length > 0) {
-            newArray[index++] = array2[array2Index++];
-            array2Length--;
+        while (rightIndex < right.length) {
+            array[index++] = right[rightIndex++];
         }
-
-        return newArray;
     }
 }
